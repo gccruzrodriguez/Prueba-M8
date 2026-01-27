@@ -9,11 +9,20 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mongoose": "^8.10.0",
-    "nodemon": "^3.1.9"
+    "mongoose": "^8.22.0"
   },
   "devDependencies": {
-    "express": "^4.21.2"
+    "express": "^4.22.1",
+    "nodemon": "^3.1.11"
   },
-  "description": ""
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gccruzrodriguez/Prueba-M8.git"
+  },
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/gccruzrodriguez/Prueba-M8/issues"
+  },
+  "homepage": "https://github.com/gccruzrodriguez/Prueba-M8#readme"
 }
