@@ -6,7 +6,7 @@ WORKDIR /app
 
 #copiar archivos de dependencias e instalar solo produccion
 COPY package*.json ./
-RUN npm install --production
+RUN npm install
 
 ##copiar el resto del codigo fuente
 COPY . .
@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 3000
 
 #comando de arranque
-CMD ["node", "dist/app.js"]
+CMD ["npm", "start"]
