@@ -7,11 +7,11 @@ const port = 3000;
 app.use(express.static("public"));
 
 
-app.get("/contact", (req, res) => 
+app.get("/contact", (req, res) => {
     res.status(200).sendFile(path.join(__dirname, 'public', 'contact.html')); 
 });
 
-app.get("/", (req, res) => {
+app.get("/", (req, res) => 
     res.status(200).sendFile(path.join(__dirname, 'public', 'home.html')); 
 });
 
