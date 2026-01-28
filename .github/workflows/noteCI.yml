@@ -3,28 +3,25 @@ name: Integrar y desplegar en Docker
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: "npm"
 
-      - name: Log into Docker Hub
-        uses: docker/login-action@v2
+      - run: npm ci
+      - run: node --check app.js
+
+      - uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USER }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          
-      - name: Build Docker image
-        run: docker build -t primerapp .
+
+      - run: docker build -t ${{ secrets.DOCKER_USER }}/primerapp:latest .
+      - run: docker push ${{ secrets.DOCKER_USER }}/primerapp:latest
